@@ -1,0 +1,45 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em 1.5em;
+    background-color: #1D1D1D;
+    color: #27AE60;
+    font-family:'Maven Pro', sans-serif;
+}
+
+.navbar_logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar_logo img {
+    width: 80px;
+    margin-right: 0.8em;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar li,
+.navbar a {
+    text-decoration: none;
+    color: #27AE60;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+    padding: 0.5em 0.8em;
+    border-radius: 5px;
+}
+
+.navbar li:hover {
+    background-color: blue;
+    color: #FFF;
+}
+
+.navbar li:hover > a {
+    background-color: blue(32, 170, 55);
+    color: #FFF;
+}
