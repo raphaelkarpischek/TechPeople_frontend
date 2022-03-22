@@ -78,6 +78,7 @@ function UserEdit() {
             return err.response.data
         })
 
+        window.scrollTo(0, 0)
         setFlashMessage(data.message, msgType)
         if(msgType === 'success') {
             history.push('/user/profile')

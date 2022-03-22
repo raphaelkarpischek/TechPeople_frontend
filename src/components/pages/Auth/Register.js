@@ -46,6 +46,7 @@ function Register() {
             formData.append(key, user[key])
         })
 
+        window.scrollTo(0, 0)
         register(formData)
     }
 
