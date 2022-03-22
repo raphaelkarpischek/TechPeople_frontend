@@ -64,7 +64,7 @@ export default function useAuth() {
 
         localStorage.setItem('token', JSON.stringify(data.token))
 
-        history.push('/')
+        history.push('/user/profile')
     }
 
     function logout () {
@@ -74,9 +74,22 @@ export default function useAuth() {
         setAuthenticated(false)
         localStorage.removeItem('token')
         api.defaults.headers.Authorization = undefined
+        history.push('/')
 
         setFlashMessage(msgText, msgType)
     }
 
-    return { authenticated, register, logout, login}
+    function deleteUser () {
+        const msgText = 'Conta excluída com sucesso'
+        const msgType = 'success'
+
+        setAuthenticated(false)
+        localStorage.removeItem('token')
+        api.defaults.headers.Authorization = undefined
+        history.push('/')
+
+        setFlashMessage(msgText, msgType)
+    }
+
+    return { authenticated, register, logout, login, deleteUser }
 }

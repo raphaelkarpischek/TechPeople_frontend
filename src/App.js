@@ -9,6 +9,10 @@ import Message from './components/layouts/Message'
 /* pages */
 import Register from './components/pages/Auth/Register'
 import Login from './components/pages/Auth/Login'
+import MyProfile from './components/pages/User/MyProfile'
+import UserEdit from './components/pages/User/UserEdit'
+import UserDetails from './components/pages/User/UserDetails'
+import Home from './components/pages/Home'
 
 /* context */
 import {UserProvider} from './context/UserContext' // serve para todos os componente conseguirem acessar o contexto do usuário
@@ -18,14 +22,26 @@ function App() {
     <Router>
       <UserProvider>
       <Navbar />
-        <Message />
         <Container>
+        <Message />
           <Switch>
             <Route path="/login">
               <Login />
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/user/profile">
+              <MyProfile />
+            </Route>
+            <Route path="/user/edit">
+              <UserEdit />
+            </Route>
+            <Route path="/user/:id">
+              <UserDetails />
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
           </Switch>
         </Container>
