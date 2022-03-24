@@ -37,6 +37,11 @@ function MyProfile() {
         deleteUser()
     }
 
+    async function handleStatus() {
+        api.patch('/usuarios/visibilidade').then((response) => {
+            window.location.reload()
+        })
+    }
 
     return (
         <section>
@@ -64,6 +69,7 @@ function MyProfile() {
                     </p>
                     
                     <div className={styles.actions}>
+                    <Link to={`/user/edit/`} id={styles.edit}>Editar</Link>
                     <Link onClick={() => {
                         var confirm=window.confirm("Tem certeza que deseja apagar seu perfil?");
                         if (confirm === true) {
@@ -71,8 +77,30 @@ function MyProfile() {
                         }
                     }} id={styles.delete}> Excluir Perfil
                     </Link>
-                    <Link to={`/user/edit/`} id={styles.edit}>Editar</Link>
                     </div>
+                </div>
+                <div className={styles.userStatus}>
+                    <h1>{`Total de visitas: ${user.visita}`}</h1>
+                    {user.visivel === true && 
+                        <div>
+                            <p>Seu perfil está ATIVO para buscas</p>
+                            <input 
+                                type="submit" 
+                                onClick={handleStatus} 
+                                value="Desativar" 
+                            />
+                        </div>
+                    }
+                    {user.visivel === false && 
+                        <div>
+                            <p>Seu perfil está INATIVO para buscas</p>
+                            <input 
+                                type="submit" 
+                                onClick={handleStatus} 
+                                value="Ativar" 
+                            />
+                        </div>
+                    }  
                 </div> 
             </div>
         </section>
