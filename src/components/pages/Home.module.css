@@ -62,17 +62,39 @@
     padding: 15px;
     border-radius: 350px;
     font-size: 1em;
+    margin-top: .2em;
     margin-bottom: 1.2em;
-    margin-left: 8em;
+    margin-left: 8.4em;
     margin-right: 1em;
     max-height: 9px;
     max-width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-left: 1.2em;
+    margin-right: 10em;
+    margin-top: 1em;
 }
 
 .user_card a:hover {
     background-color: blue;
     color: #fff;
+}
+
+#github_button, #linkedin_button {
+    background-color: #5a5a5a;
+    margin-left: -5px;
+    font-size: 30px;
+    max-height: 0px;
+    max-width: 0px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: -36px;
 }

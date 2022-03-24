@@ -35,9 +35,9 @@ function Home() {
                             </div>
                             <h3>{user.nome}</h3>
                             <h4>{user.area}</h4>
-                            <div className={styles.user_card_icons}>
-                                <a href="google" className={styles.user_card_icons}><i class="bi bi-github" /></a>
-                                <a href="google"><i class="bi bi-linkedin"/></a>
+                            <div className={styles.actions}>
+                                <a href="google" id={styles.github_button}><i class="bi bi-github fa-7x"/></a>
+                                <a href="google" id={styles.linkedin_button}><i class="bi bi-linkedin"/></a>
                             </div>
                             <Link to={`/user/${user.id}`}>Ver mais</Link>
                          </div>

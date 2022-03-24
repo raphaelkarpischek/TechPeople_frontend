@@ -1,6 +1,6 @@
 import api from '../../../utils/api'
 import { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import Input from '../../form/Input'
 import Select from '../../form/Select'
@@ -55,6 +55,7 @@ function UserEdit() {
     }
 
     async function handleSubmit(e) {
+        
         e.preventDefault()
 
         let msgType = 'success'
@@ -88,6 +89,7 @@ function UserEdit() {
     return (
         <section>
             <div className={styles.profile_header}>
+            <Link to={'/user/profile'}>Voltar</Link>
                 <h1>{`Editando: ${user.nome}`}</h1>
                 {(user.imagem || preview ) && (
                     <RoundedImage
@@ -125,7 +127,7 @@ function UserEdit() {
                     value={user.email || ''}
                 />
                 <Input
-                    text="Telefone"
+                    text="Telefone com DDD"
                     type="text"
                     name="telefone"
                     placeholder="Digite o seu telefone"

@@ -3,3 +3,28 @@
     margin-bottom: 1em;
     font-family: 'Maven Pro', sans-serif;
 }
+
+.profile_header a {
+    text-decoration: none;
+    background-color: #27AE60;
+    color: #F9F9F9;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+    padding: 15px;
+    border-radius: 350px;
+    font-size: 1em;
+    margin-top: .2em;
+    margin-bottom: -1.8em;
+    margin-left: -2em;
+    max-height: 9px;
+    max-width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_header a:hover {
+    background-color: blue;
+    color: #fff;
+}

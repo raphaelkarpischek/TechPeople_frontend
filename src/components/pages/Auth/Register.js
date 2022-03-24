@@ -75,7 +75,7 @@ function Register() {
                     handleOnChange={handleChange}
                 />
                 <Input
-                    text="Telefone"
+                    text="Telefone com DDD"
                     type="text"
                     name="telefone"
                     placeholder="Digite o seu telefone"

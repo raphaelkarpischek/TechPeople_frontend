@@ -62,17 +62,18 @@ function MyProfile() {
                     <p>
                         <span className="bold">Tecnologias: </span> {user.tecnologia}
                     </p>
-                </div> 
-                <div className={styles.actions}>
-                        <button onClick={() => {
+                    
+                    <div className={styles.actions}>
+                    <Link onClick={() => {
+                        var confirm=window.confirm("Tem certeza que deseja apagar seu perfil?");
+                        if (confirm === true) {
                             removeUser()
-                        }}
-                        >
-                            Excluir Perfil
-                        </button>
-                        <br></br>
-                        <Link to={`/user/edit/`}>Editar</Link>
+                        }
+                    }} id={styles.delete}> Excluir Perfil
+                    </Link>
+                    <Link to={`/user/edit/`} id={styles.edit}>Editar</Link>
                     </div>
+                </div> 
             </div>
         </section>
     )
