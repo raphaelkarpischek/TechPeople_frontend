@@ -5,11 +5,15 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import RoundedImage from '../layouts/RoundedImage'
+import useFlashMessage from '../../hooks/useFlashMessage'
 
 import styles from './Home.module.css'
  
 function Home() {
     const [users, setUsers] = useState([])
+    const [parameter, setParameter] = useState()
+    const { setFlashMessage } = useFlashMessage()
+
         
     useEffect(() => {
         api.get('/usuarios').then((response) => {
@@ -17,9 +21,25 @@ function Home() {
         })
     }, [])
 
-    function handleChange(e) {}
+    function handleChange(e) {
+        setParameter({...parameter, [e.target.name]: e.target.value})
+    }
 
-    function handleSearch(e) {}
+    async function handleSearch(e) {
+        e.preventDefault()
+
+        let msgType = 'success'
+
+        const data = await api.post('/usuarios', parameter).then((response) => {
+            setUsers(response.data.usuarios)
+            return response.data
+        })
+        .catch((err) => {
+            msgType = 'error'
+            return err.response.data
+        })
+        setFlashMessage(data.message, msgType)
+    }
     
 
     return (
@@ -30,11 +50,11 @@ function Home() {
                 <form onSubmit={handleSearch}>
                     <div className={styles.search}>
                         <input
-                            text="Pesquisar por nome, "
+                            text="Pesquisa "
                             type="text"
-                            name="telefone"
+                            name="parametro"
                             placeholder="Procure por nome, tecnologia, ou área de atuação"
-                            handleOnChange={handleChange}
+                            onChange={handleChange}
                         />
                         <input type="submit" value="Buscar" />
                     </div>
@@ -56,8 +76,8 @@ function Home() {
                             <h4>{user.area}</h4>
                             <h5>{user.tecnologia}</h5>
                             <div className={styles.actions}>
-                                <a href="google" id={styles.github_button}><i class="bi bi-github fa-7x"/></a>
-                                <a href="google" id={styles.linkedin_button}><i class="bi bi-linkedin"/></a>
+                                <a href={user.github} target="_blank" rel="noreferrer" id={styles.github_button}><i class="bi bi-github fa-7x"/></a>
+                                <a href={user.linkedin} target="_blank" rel="noreferrer" id={styles.linkedin_button}><i class="bi bi-linkedin"/></a>
                             </div>
                             <Link to={`/user/${user.id}`}>Ver mais</Link>
                          </div>

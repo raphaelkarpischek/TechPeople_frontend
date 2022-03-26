@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom'
 import styles from './Dashboard.module.css'
 
 import RoundedImage from '../../layouts/RoundedImage'
+import useFlashMessage from '../../../hooks/useFlashMessage'
 
 import { Context } from '../../../context/UserContext'
 
 function MyProfile() {
     const [user, setUser] = useState({})
     const [token] = useState(localStorage.getItem('token') || '')
+    const { setFlashMessage } = useFlashMessage()
     const { deleteUser } = useContext(Context)
 
     useEffect(() => {
@@ -38,9 +40,22 @@ function MyProfile() {
     }
 
     async function handleStatus() {
-        api.patch('/usuarios/visibilidade').then((response) => {
-            window.location.reload()
+
+        let msgType = 'success'
+
+        const data = await api.patch('/usuarios/visibilidade').then((response) => {
+            return response.data
+        }).catch((err) => {
+            msgType = 'error'
+            return err.response.data
         })
+
+        window.scrollTo(0, 0)
+        setFlashMessage(data.message,msgType)
+
+        setTimeout(() => {
+            window.location.reload()
+        }, 600)
     }
 
     return (
@@ -62,6 +77,9 @@ function MyProfile() {
                         <span className="bold">Estado: </span> {user.estado}
                     </p>
                     <p>
+                        <span className="bold">Telefone: </span> {user.telefone}
+                    </p>
+                    <p>
                         <span className="bold">Área: </span> {user.area}
                     </p>
                     <p>
@@ -71,7 +89,7 @@ function MyProfile() {
                     <div className={styles.actions}>
                     <Link to={`/user/edit/`} id={styles.edit}>Editar</Link>
                     <Link onClick={() => {
-                        var confirm=window.confirm("Tem certeza que deseja apagar seu perfil?");
+                        var confirm=window.confirm("Tem certeza que deseja apagar seu perfil? Esta ação não pode ser revertida!");
                         if (confirm === true) {
                             removeUser()
                         }
@@ -79,25 +97,25 @@ function MyProfile() {
                     </Link>
                     </div>
                 </div>
-                <div className={styles.userStatus}>
+                <div className={styles.user_status}>
                     <h1>{`Total de visitas: ${user.visita}`}</h1>
                     {user.visivel === true && 
-                        <div>
+                        <div className={styles.turn_off}>
                             <p>Seu perfil está ATIVO para buscas</p>
                             <input 
                                 type="submit" 
                                 onClick={handleStatus} 
-                                value="Desativar" 
+                                value="Desativar Perfil" 
                             />
                         </div>
                     }
                     {user.visivel === false && 
-                        <div>
+                        <div className={styles.turn_on}>
                             <p>Seu perfil está INATIVO para buscas</p>
                             <input 
                                 type="submit" 
                                 onClick={handleStatus} 
-                                value="Ativar" 
+                                value="Ativar Perfil" 
                             />
                         </div>
                     }  

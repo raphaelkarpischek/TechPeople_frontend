@@ -43,7 +43,6 @@ function UserEdit() {
 
     function handleChange(e) {
         setUser({...user, [e.target.name]: e.target.value })
-        console.log(user.name)
     }
 
     function handleState(e) {
@@ -163,6 +162,22 @@ function UserEdit() {
                     placeholder="Digite quais tecnologias você conhece"
                     handleOnChange={handleChange}
                     value={user.tecnologia || ''}
+                />
+                <Input
+                    text="Github"
+                    type="text"
+                    name="github"
+                    placeholder="Link do seu perfil no Github"
+                    handleOnChange={handleChange}
+                    value={user.github || ''}
+                />
+                <Input
+                    text="Linkedin"
+                    type="text"
+                    name="linkedin"
+                    placeholder="Link do seu perfil no Linkedin"
+                    handleOnChange={handleChange}
+                    value={user.linkedin || ''}
                 />
                 <Input
                     text="Senha"

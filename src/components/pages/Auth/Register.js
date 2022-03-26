@@ -110,6 +110,20 @@ function Register() {
                     handleOnChange={handleChange}
                 />
                 <Input
+                    text="Github"
+                    type="text"
+                    name="github"
+                    placeholder="Link do seu perfil no Github"
+                    handleOnChange={handleChange}
+                />
+                <Input
+                    text="Linkedin"
+                    type="text"
+                    name="linkedin"
+                    placeholder="Link do seu perfil no Linkedin"
+                    handleOnChange={handleChange}
+                />
+                <Input
                     text="Senha"
                     type="password"
                     name="senha"

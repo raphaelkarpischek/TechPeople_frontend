@@ -29,6 +29,8 @@
 }
 
 .user_profile_card h3 {
+    text-decoration-line: overline;
+    text-decoration-color: #27AE60;
     color: #FFFFFF;
     font-family: 'Maven Pro', sans-serif;
     margin-bottom: .1em;
@@ -39,11 +41,14 @@
 
 .user_profile_card p {
     margin-bottom: .7em;
+    color: #FFFFFF;
+    font-family: 'Maven Pro', sans-serif;
+    text-align: left;
+    margin-left: 1.5em;
 }
 
 .user_profile_card a {
     text-decoration: none;
-    color: #F9F9F9;
     font-weight: bold;
     cursor: pointer;
     transition: .5s;
@@ -86,4 +91,72 @@
 #edit:hover {
     background-color: black;
     color: #DBB801;
+}
+
+.user_status {
+    position: relative;
+    margin-left: 5em;
+    align-items: right;
+    align-content: right;
+    margin-left: 50em;
+    margin-bottom: 1em;
+    margin-top: -20em;
+}
+
+.user_status p, h1 {
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.turn_off input {
+    text-decoration: none;
+    color: black;
+    background-color: #F42626;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 1em;
+    margin: auto;
+    margin-top: 1.5em;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    border-style: none;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.turn_off input:hover {
+    background-color: black;
+    color: #F42626;
+}
+
+.turn_on input {
+    text-decoration: none;
+    color: black;
+    background-color: #27AE60;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 1em;
+    margin: auto;
+    margin-top: 1.5em;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    border-style: none;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.turn_on input:hover {
+    background-color: black;
+    color: #FFFFFF;
 }

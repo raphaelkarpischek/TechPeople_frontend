@@ -34,17 +34,21 @@ function UserDetails() {
                             <h3>{user.nome}</h3>
                             <h4>{user.area}</h4>
                             <p>
+                                Estado: {user.estado}
+                            </p>
+                            <p>
                                 Descrição: {user.descricao}
                             </p>
                             <p>
                                 Tecnologias: {user.tecnologia}
                             </p>
-
-                                <a href="google" id={styles.github_button}><i class="bi bi-github fa-7x"/></a>
-                                <a href="google" id={styles.linkedin_button}><i class="bi bi-linkedin"/></a>
-                                <a href="google" id={styles.linkedin_button}><i class="bi bi-envelope-fill"/></a>
-                                <a href="google" id={styles.linkedin_button}><i class="bi bi-whatsapp"/></a>
-                        
+                            <h2>Entre em contato</h2>
+                            <div className={styles.actions}>
+                                <a href={user.github} target="_blank" rel="noreferrer" id={styles.github_button}><i class="bi bi-github fa-7x"/></a>
+                                <a href={user.linkedin} target="_blank" rel="noreferrer" id={styles.linkedin_button}><i class="bi bi-linkedin"/></a>
+                                <a href={`mailto:${user.email}`} target="_blank" rel="noreferrer" id={styles.email_button}><i class="bi bi-envelope-fill"/></a>
+                                <a href={`https://wa.me/55${user.telefone}?text=Ola%20encontrei%20seu%20perfil%20na%20plataforma%20techpeople!`} target="_blank" rel="noreferrer" id={styles.whatsapp_button}><i class="bi bi-whatsapp"/></a>
+                            </div>
                         </div>
             </div>
         </section>

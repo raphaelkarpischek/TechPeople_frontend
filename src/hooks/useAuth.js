@@ -65,6 +65,9 @@ export default function useAuth() {
         localStorage.setItem('token', JSON.stringify(data.token))
 
         history.push('/user/profile')
+        setTimeout(() => {
+            window.location.reload()
+        },800)
     }
 
     function logout () {
