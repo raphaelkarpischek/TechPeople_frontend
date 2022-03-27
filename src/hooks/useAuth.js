@@ -21,7 +21,7 @@ export default function useAuth() {
 
     async function register(formData) {
 
-        let msgText = 'Cadastro realizado com sucesso'
+        let msgText = 'Cadastro realizado com sucesso!'
         let msgType = 'success'
 
         try {
