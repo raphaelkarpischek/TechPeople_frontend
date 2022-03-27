@@ -95,7 +95,7 @@ function UserEdit() {
                      src={
                          preview
                           ? URL.createObjectURL(preview) 
-                          : `${process.env.REACT_APP_API}/images/usuarios/${user.imagem}`
+                          : `https://techpeople-backend.herokuapp.com/images/usuarios/${user.imagem}`
                         }
                     alt={user.nome} 
                     width="px100"

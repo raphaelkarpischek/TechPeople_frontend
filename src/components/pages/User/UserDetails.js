@@ -26,7 +26,7 @@ function UserDetails() {
                     <div className={styles.user_details_card}>
                         <div className={styles.user_details_card_img}>
                             <RoundedImage 
-                                src={`${process.env.REACT_APP_API}/images/usuarios/${user.imagem}`} 
+                                src={`https://techpeople-backend.herokuapp.com/images/usuarios/${user.imagem}`} 
                                 alt={user.nome}
                                 width="px100"
                             />
