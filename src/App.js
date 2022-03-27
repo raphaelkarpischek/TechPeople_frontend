@@ -40,9 +40,6 @@ function App() {
             <Route path="/user/:id">
               <UserDetails />
             </Route>
-            <Route path="/">
-              <Home />
-            </Route>
           </Switch>
         </Container>
       <Footer />
