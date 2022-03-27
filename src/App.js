@@ -12,7 +12,7 @@ import Login from './components/pages/Auth/Login'
 import MyProfile from './components/pages/User/MyProfile'
 import UserEdit from './components/pages/User/UserEdit'
 import UserDetails from './components/pages/User/UserDetails'
-import Home from './components/pages/Home'
+//import Home from './components/pages/Home'
 
 /* context */
 import {UserProvider} from './context/UserContext' // serve para todos os componente conseguirem acessar o contexto do usuário
